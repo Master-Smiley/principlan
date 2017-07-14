@@ -1,0 +1,31 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID #</th>
+      <th>Task Name</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Progress</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  	<!-- ngIf for not 100 -->
+  	<style></style>
+	 	<tr *ngFor="let task of tasks" id="#table_row">
+	    <th scope="row">{{task.id}}</th>
+	    <td>{{task.task_name}}</td>
+	    <td>{{task.start_date}}</td>
+      <td>{{task.end_date}}</td>
+	    <td>
+	    	<span *ngIf="task.progress !== 100">{{task.progress}}%</span>
+	    	<span *ngIf="task.progress === 100">Done!</span>
+	    	<button class="btn btn-secondary btn-sm mr-1 ml-1"><img id="btn_arrows" src="https://upload.wikimedia.org/wikipedia/commons/6/61/Black_Up_Arrow.png" (click)="progressUp(task)"></button>
+	    	<button class="btn btn-secondary btn-sm" (click)="task.progress = task.progress - 10"><img id="btn_arrows" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Arrow_down_font_awesome.svg/1024px-Arrow_down_font_awesome.svg.png"></button>
+	    </td>
+	  </tr>
+	  <!-- end ngIf for not 100 -->
+
+
+  </tbody>
+</table>
